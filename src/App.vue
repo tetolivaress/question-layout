@@ -1,63 +1,34 @@
-<template>
-  <v-app>
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-    </v-navigation-drawer>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
-  </v-app>
+<template lang="pug">
+  v-app
+    v-navigation-drawer(v-model='drawer' app='')
+      .d-flex.flex-column
+        .pa-4
+        v-card-title.d-flex.justify-center.text-uppercase Home
+          v-img(src='https://cdn.vuetifyjs.com/images/cards/house.jpg' height='200px')
+          v-btn.my-2(to="/") entrar
+        .pa-4
+        v-card-title.d-flex.justify-center.text-uppercase Añadir
+          v-img(src='https://cdn.vuetifyjs.com/images/cards/cooking.png' height='200px')
+          v-btn.my-2(to="/add") entrar
+    v-app-bar.d-flex.align-center.justify-center.text-capitalize(
+      app=''
+      color='primary'
+      dark=''
+    )
+      v-app-bar-nav-icon(@click='drawer = !drawer')
+      v-btn.my-4(text to="/") Centro de ayuda Seif
+    v-main
+     router-view(class="mt-8")
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Home from './components/Home'
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld
+    Home
   },
 
   data: () => ({
