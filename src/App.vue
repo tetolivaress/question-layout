@@ -10,6 +10,7 @@
         v-card-title.d-flex.justify-center.text-uppercase Añadir
           v-img(src='https://cdn.vuetifyjs.com/images/cards/cooking.png' height='200px')
           v-btn.my-2(to="/add") entrar
+        .pa-4
     v-app-bar.d-flex.align-center.justify-center.text-capitalize(
       app=''
       color='primary'
